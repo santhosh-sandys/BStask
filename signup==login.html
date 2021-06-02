@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Day3.css">
+
+
+    <script>
+
+        //array
+        var students = [];
+
+        function arrayFunc() {
+
+            var x = document.getElementById("name").value;
+            var y = document.getElementById("pwd1").value;
+            //object
+            var student = {};
+            student.Name = x;
+            student.Password = y;
+            students.push(student);
+
+            console.log(students);
+        }
+
+        function checkFunc() {
+            var a = document.getElementById("username").value;
+            var b = document.getElementById("pwd").value;
+             
+            
+            var isUserFound = false;
+            var isPasswordFound = false;
+            
+            
+            for (var i = 0; i < students.length; i++) {
+                if( a == students[i].Name){
+                    isUserFound =true;
+
+                    if( b == students[i].Password ){
+                        isPasswordFound = true;
+                        break;
+                     }
+                }
+                  
+            }
+             
+        if(isUserFound==true && isPasswordFound==true) alert("Login Successfull")
+          else if(isUserFound==true && isPasswordFound==false) alert("Pls Enter Correct Password")
+            else alert("Pls Enter Valid Credentials");
+            
+            
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-sm-6">
+
+            <div class="container">
+                <label>Name</label>
+                <input type="text" id="name"><br>
+                <label>password </label>
+                <input type="password" id="pwd1"><br>
+                <button onclick="arrayFunc()">Submit</button>
+            </div>
+
+
+        </div>
+        <div class="col-sm-6">
+            <label>Username</label>
+            <input type="text" id="username"><br>
+            <label>password </label>
+            <input type="password" id="pwd"><br>
+            <button onclick="checkFunc()">Login</button>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
