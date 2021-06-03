@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="D3T.css">
+
+<script>
+    
+    var data = [];
+
+    function getinfo(){
+    var phNum = document.getElementById("lphnum").value;
+    var password =  document.getElementById("lpwd").value;
+
+    var ldata = {};
+    ldata.phoneNumber = phNum;
+    ldata.Password = password;
+
+    data.push(ldata);
+    console.log(data);
+    }
+
+
+    function validate(){
+        var phnum = document.getElementById("phnum").value;
+        var psw = document.getElementById("pwd").value;
+
+        var isphnum= false;
+        var isPasswordFound = false;
+            
+            
+        for (var i = 0; i < data.length; i++) {
+                if( phnum == data[i].phoneNumber){
+                    isphnum=true;
+
+                    if( psw == data[i].Password ){
+                        isPasswordFound = true;
+                        break;
+
+                     }
+                }
+            }    
+            
+            if(isphnum && isPasswordFound) alert("Login Successfull")
+
+          else if(isphnum && !isPasswordFound) alert("Pls Enter Correct Password")
+
+            else alert("Pls Enter Valid Credentials");
+            
+           
+        }
+
+             
+    
+
+</script>
+
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-6">
+    <div class="textbox">
+        <h1>
+            facebook
+        </h1>
+        
+    </div>
+
+
+<div class="form">
+    <input type="text" class="text" id="lphnum"   placeholder="Enter Your Email or Phone number"> <br>
+    <input type="password" class="password" id="lpwd" placeholder="Password"><br>
+    <button>
+        Log In
+    </button>
+    <p><a href="">forgot password?</a><br></p>
+    <div class="btn">
+        <button onclick="getinfo()">Create New Account</button>
+     
+         
+</div>
+
+    </div>
+    </div>
+    </div>
+
+
+    <div class="col-sm-6">
+        <div class = Regpage>
+       <h1 style = "color:cyan">Register</h1>
+       <input type="text" id="fname" placeholder="First name"> 
+       <input type="text" id="lname" placeholder="Last name"> <br><br>
+       <input type="number" id="phnum" placeholder="Mobile Number"><br><br>
+       <label>DOB</label>
+       <input type="date" id="dob" placeholder="Date Of Birth"><br><br>
+       <label>Password</label>
+       <input type="password" id = pwd ><br><br>
+       <button onclick="validate()" class="signup">sign up</button>
+
+       </div>
+    </div>
+
+    
+</body>
